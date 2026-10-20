@@ -46,13 +46,9 @@ Seluruh konsep matematika, rumus, notasi simbol, tahapan algoritma, hingga studi
 
 ```text
 Tugas Diffie-Hellman dan ElGamal/
-├── Pertemuan ke-9_El Gamal dan Diffie-Hellman.pptx      # Materi PPT referensi utama perkuliahan
 ├── diffie_hellman.py                                    # Program utama Diffie-Hellman Key Exchange
 ├── elgamal.py                                           # Program utama ElGamal Encryption & Decryption
-├── laporan.docx                                         # Laporan akademik lengkap dalam format Microsoft Word (.docx)
-├── Laporan_Tugas_Diffie_Hellman_dan_ElGamal.docx        # Salinan laporan format Microsoft Word (.docx) siap kumpul
-├── laporan.md                                           # Laporan akademik lengkap dalam format Markdown (.md)
-├── flowchart_dan_pseudocode.md                          # Flowchart Mermaid, Sequence Diagram, dan Pseudocode
+├── Laporan_Tugas_Diffie_Hellman_dan_ElGamal.docx        # Laporan resmi project
 ├── README.md                                            # Dokumentasi utama proyek, panduan, dan hasil pengujian
 └── dokumentasi/                                         # Folder berisi diagram flowchart & screenshot eksekusi terminal
     ├── flowchart_diffie_hellman.png                     # Diagram alir visual Diffie-Hellman Key Exchange
@@ -204,7 +200,4 @@ python elgamal.py --interactive
 
 ---
 
-## Catatan Keamanan & Keterbatasan
-
-> **Catatan Pembelajaran**: Implementasi ini ditujukan khusus untuk pembelajaran akademik pada mata kuliah Kriptografi dengan parameter bilangan bulat kecil ($p = 23$, $p = 251$, dan $p = 2273$) agar setiap langkah perpangkatan dan invers modular dapat ditelusuri secara manual. Parameter berukuran kecil ini **tidak aman** untuk digunakan pada sistem produksi nyata karena logaritma diskritnya dapat dihitung secara instan oleh komputer modern. Sistem produksi nyata membutuhkan bilangan prima $p$ berukuran minimal **2048 bit** hingga **3072 bit** serta mekanisme tanda tangan digital untuk mencegah serangan *Man-in-the-Middle* (MitM).
 
