@@ -13,6 +13,10 @@
 
 ## Identitas Anggota Kelompok
 
+**Kelompok 5**
+
+Kelompok 5: Putu Yudi Nandanjaya Wiraguna, Raihan Fahri Ghazali, I Gede Bagus Saka Sinatrya
+
 | No | Nama Lengkap Mahasiswa | NRP |
 | :-: | :--- | :---: |
 | 1 | **Putu Yudi Nandanjaya Wiraguna** | `5027241080` |
@@ -45,7 +49,7 @@ Seluruh konsep matematika, rumus, notasi simbol, tahapan algoritma, hingga studi
 ## Struktur File Proyek
 
 ```text
-Tugas Diffie-Hellman dan ElGamal/
+Kriptografi_TugasDiffie-Hellman-ElGamal_Kelompok5-main/
 ├── diffie_hellman.py                                    # Program utama Diffie-Hellman Key Exchange
 ├── elgamal.py                                           # Program utama ElGamal Encryption & Decryption
 ├── Laporan_Tugas_Diffie_Hellman_dan_ElGamal.docx        # Laporan resmi project
@@ -104,7 +108,7 @@ Secara otomatis menjalankan:
      - **Blok 1 ($m_1 = 0700, k_1 = 1463$)**: menghasilkan ciphertext $(1439, 74)$, didekripsi dengan $s = 1825$ dan $s^{-1} = 1791$ (baik melalui *Extended Euclidean* maupun *Teorema Kecil Fermat*) kembali menjadi `0700`.
      - **Blok 2 ($m_2 = 1114, k_2 = 2001$)**: menghasilkan ciphertext $(1220, 1682)$, didekripsi dengan $s = 1087$ dan $s^{-1} = 1125$ kembali menjadi `1114`.
    - Rekonstruksi blok `0700` + `1114` menghasilkan kembali teks `"HALO"`.
-3. **Skenario 3 (Pengujian *Ephemeral Key* $k$ Acak)**: Mendemonstrasikan sifat probabilistik enkripsi ElGamal menggunakan pemilihan $k$ acak otomatis.
+3. **Skenario 3 (Pengujian *Ephemeral Key* $k$ Acak)**: Mendemonstrasikan sifat probabilistik enkripsi ElGamal menggunakan pemilihan $k$ acak otomatis pada rentang $2 \le k \le p-2$ (untuk $p=23$, yaitu $[2..21]$). Nilai $k$ yang dimasukkan manual divalidasi pada rentang $1 \le k \le p-2$.
 4. **Uji Validasi Input Tidak Valid**: Menangkap `ValueError` untuk pesan $m \ge p$, pesan negatif, nilai $k$ di luar rentang, dan elemen yang tidak memiliki invers modular.
 
 Untuk menjalankan **mode input interaktif**:
@@ -167,38 +171,4 @@ python elgamal.py --interactive
 ## Catatan Keamanan & Keterbatasan
 
 > **Catatan Pembelajaran**: Implementasi ini ditujukan khusus untuk pembelajaran akademik pada mata kuliah Kriptografi dengan parameter bilangan bulat kecil ($p = 23$, $p = 251$, dan $p = 2273$) agar setiap langkah perpangkatan dan invers modular dapat ditelusuri secara manual. Parameter berukuran kecil ini **tidak aman** untuk digunakan pada sistem produksi nyata karena logaritma diskritnya dapat dihitung secara instan oleh komputer modern. Sistem produksi nyata membutuhkan bilangan prima $p$ berukuran minimal **2048 bit** hingga **3072 bit** serta mekanisme tanda tangan digital untuk mencegah serangan *Man-in-the-Middle* (MitM).
-
-### 3. Simulasi Diffie–Hellman Skenario 2 ($p=23, g=5, K=2$) & Validasi Input
-![Dokumentasi 3](dokumentasi/03_diffie_hellman_kecil_s2_dan_validasi.png)
-
-### 4. Simulasi ElGamal Skenario 1 (Parameter Kecil: $p=23, g=5, m=15, k=10$)
-![Dokumentasi 4](dokumentasi/04_elgamal_kecil_s1.png)
-
-### 5. Simulasi ElGamal Skenario 2 (Contoh PPT Slide 15–20: Pesan `'HALO'` Blok 1 $m_1=0700$)
-![Dokumentasi 5](dokumentasi/05_elgamal_ppt_halo_blok1.png)
-
-### 6. Simulasi ElGamal Skenario 2 (Blok 2 $m_2=1114$, Rekonstruksi `'HALO'`, & Uji Validasi)
-![Dokumentasi 6](dokumentasi/06_elgamal_ppt_halo_blok2_dan_validasi.png)
-
----
-
-## Tabel Ringkasan Verifikasi Pengujian
-
-### A. Verifikasi Diffie–Hellman Key Exchange
-| Skenario Uji | Parameter $(p, g, a, b)$ | Public Key Alice $A (X)$ | Public Key Bob $B (Y)$ | Shared Secret $K_A = K_B$ | Status Verifikasi |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **Skenario 1 (PPT Slide 11)** | $(251, 6, 124, 158)$ | $209$ | $197$ | $79$ | **VALID (100% Sesuai PPT)** |
-| **Skenario 2 (Parameter Kecil)** | $(23, 5, 6, 15)$ | $8$ | $19$ | $2$ | **VALID (Sesuai Hitungan Manual)** |
-
-### B. Verifikasi ElGamal Encryption & Decryption
-| Skenario Uji | Parameter $(p, g, x, y)$ | Pesan Asli $m$ | Ephemeral Key $k$ | Ciphertext $(c_1, c_2)$ | $s = c_1^x \bmod p$ | Invers $s^{-1} \bmod p$ (EEA & Fermat) | Dekripsi $m'$ | Status |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Skenario 1 (Kecil)** | $(23, 5, 6, 8)$ | $15$ | $10$ (tetap) | $(9, 22)$ | $3$ | $8$ | $15$ | **VALID** |
-| **Skenario 2 Blok 1 (PPT)** | $(2273, 3, 243, 461)$ | $0700$ (`HA`) | $1463$ (PPT) | $(1439, 74)$ | $1825$ | $1791$ | $0700$ | **VALID** |
-| **Skenario 2 Blok 2 (PPT)** | $(2273, 3, 243, 461)$ | $1114$ (`LO`) | $2001$ (PPT) | $(1220, 1682)$ | $1087$ | $1125$ | $1114$ | **VALID** |
-| **Skenario 3 ($k$ Acak)** | $(23, 5, 6, 8)$ | $15$ | Acak $[2..21]$ | Bervariasi | Konsisten | Konsisten | $15$ | **VALID** |
-
----
-
-
 

@@ -4,7 +4,7 @@ IMPLEMENTASI ALGORITMA ELGAMAL ENCRYPTION (TANPA LIBRARY KRIPTOGRAFI)
 ================================================================================
 Mata Kuliah : Kriptografi
 Topik       : Pertemuan ke-9 - Diffie-Hellman Key Exchange & ElGamal Algorithm
-Kelompok    :
+Kelompok 5 :
   1. Putu Yudi Nandanjaya Wiraguna  (NRP: 5027241080)
   2. Raihan Fahri Ghazali           (NRP: 5027241061)
   3. I Gede Bagus Saka Sinatrya     (NRP: 5027241088)
@@ -534,7 +534,7 @@ if __name__ == "__main__":
     print("=" * 78)
     print("TUGAS MATA KULIAH KRIPTOGRAFI - IMPLEMENTASI ELGAMAL ENCRYPTION & DECRYPTION")
     print("-" * 78)
-    print("Anggota Kelompok:")
+    print("Kelompok 5 - Anggota:")
     print("  1. Putu Yudi Nandanjaya Wiraguna  (5027241080)")
     print("  2. Raihan Fahri Ghazali           (5027241061)")
     print("  3. I Gede Bagus Saka Sinatrya     (5027241088)")
